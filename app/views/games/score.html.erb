@@ -1,0 +1,18 @@
+<H1>Result</H1>
+
+
+<%#  %>
+<% if @included || @english_word %>
+    <p><strong>Congratulations!</strong><%=@answer%> is a valid English word and in scope!</p>
+  <%elsif @included || !@english_word%>
+    <p>Sorry, but <strong><%=@answer%>!</strong> is not a English word.</p>
+  <%elsif !@included || @english_word %>
+    <p>Sorry, but <strong><%=@answer%></strong> is not within the grid's scope <%=@initial_letters%>.</p>
+<%end %>
+
+<hr>
+<br>
+<%= @answer %>
+<hr>
+<br>
+<%= link_to "Play again", new_path %>
